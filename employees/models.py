@@ -23,3 +23,4 @@ class Employees(models.Model):
 
 class AvailableJobs(models.Model):
     name = models.CharField(max_length=100)
+
