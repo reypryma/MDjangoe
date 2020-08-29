@@ -16,7 +16,7 @@ def home(request):
 
 def employee_detail(request, employee_id):
     try:
-        employee = Employees.objects.get(employee_id=employee_id)
+        employee = Employees.objects.get(id=employee_id)
     except Employees.DoesNotExist:
         raise Http404('Employee not found')
     return HttpResponse(request, 'employee-detail.html', {'employee': employee})
