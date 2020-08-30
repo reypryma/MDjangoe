@@ -1,0 +1,15 @@
+<table border="1">
+    {% for employee in employees %}
+        <tr>
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.first_name }}</td>
+            <td>{{ employee.last_name }}</td>
+            <td>
+                {% for job in employee.employee_job.all %}
+                    <em>{{ job.name }}</em>
+                {% endfor %}
+            </td>
+            <td><a href="{% url 'employee_detail' employee.id %}">Detail</a></td>
+        </tr>
+    {% endfor %}
+</table>

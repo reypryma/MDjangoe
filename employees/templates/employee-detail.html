@@ -1,0 +1,11 @@
+<h3>{{ employee.first_name }} {{ employee.last_name }} </h3>
+<p>Email ID : {{ employee.email_id }}</p>
+<p>Phone Number : {{ employee.phone_num }}</p>
+<p>Gender : {{ employee.phone_num }}</p>
+<p>Address : {{ employee.employee_address }}</p>
+<p>Job :
+    {% for job in employee.employee_job.all %}
+        <em>{{ job.name }}</em>
+    {% endfor %}
+</p>
+<p>BirthDay : {{ employee.date_of_birth }}</p>
