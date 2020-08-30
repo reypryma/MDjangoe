@@ -1,11 +1,21 @@
-<h3>{{ employee.first_name }} {{ employee.last_name }} </h3>
-<p>Email ID : {{ employee.email_id }}</p>
-<p>Phone Number : {{ employee.phone_num }}</p>
-<p>Gender : {{ employee.phone_num }}</p>
-<p>Address : {{ employee.employee_address }}</p>
-<p>Job :
-    {% for job in employee.employee_job.all %}
-        <em>{{ job.name }}</em>
-    {% endfor %}
-</p>
-<p>BirthDay : {{ employee.date_of_birth }}</p>
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row margin-top">
+            <div class="col-xl-12 mt-4 pt-2">
+                <h3 class="text-info">{{ employee.first_name }} {{ employee.last_name }} </h3>
+                <p>BirthDay : {{ employee.date_of_birth }}</p>
+                <p>Email ID : {{ employee.email_id }}</p>
+                <p>Phone Number : {{ employee.phone_num }}</p>
+                <p>Gender : {{ employee.phone_num }}</p>
+                <p>Address : {{ employee.employee_address }}</p>
+                <p>Job :
+                    {% for job in employee.employee_job.all %}
+                        <em>{{ job.name }}</em>
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
