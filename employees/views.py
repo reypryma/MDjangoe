@@ -2,13 +2,21 @@
 from __future__ import unicode_literals
 
 from django.http import HttpResponse
+from django.http import Http404
 from django.shortcuts import render
+
+from .models import Employees
 
 
 # Create your views here.
 def home(request):
-    return HttpResponse('Welcome Home')
+    employees = Employees.objects.all()
+    return render(request, 'home.html', {'employees': employees})
 
 
 def employee_detail(request, employee_id):
-    return HttpResponse(f'Employee ID: {employee_id}')
+    try:
+        employee = Employees.objects.get(id=employee_id)
+    except Employees.DoesNotExist:
+        raise Http404('Employee not found')
+    return render(request, 'employee-detail.html', {'employee': employee})
